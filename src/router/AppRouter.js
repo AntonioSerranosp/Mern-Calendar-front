@@ -19,27 +19,26 @@ export const AppRouter = () => {
         dispatch(startChecking());
     }, [dispatch])
 
-    // if (checking){
-    //     //poner un loading
-    //     return (<h5>Espere...</h5>);
-    // }
+    if (checking){
+        //poner un loading
+        return (<h5>Espere...</h5>);
+    }
     return (
         <Router>
             <div>
                 <Switch>
-                    <PublicRoute 
-
+                <PublicRoute 
                         exact 
                         path="/login" 
-                        component={ LoginScreen } 
-                        isAuthenticated={ !!uid}
-                    />      
+                        component={ LoginScreen }
+                        isAuthenticated={ !!uid }
+                    />
+
                     <PrivateRoute 
                         exact 
                         path="/" 
-                        component={ CalendarScreen }
-                        isAuthenticated={!!uid}
-
+                        component={ CalendarScreen } 
+                        isAuthenticated={ !!uid }
                     />
 
                     <Redirect to="/" />   
